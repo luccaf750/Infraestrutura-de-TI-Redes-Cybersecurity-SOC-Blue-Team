@@ -1,99 +1,141 @@
-# 👨‍💻 Lucas Ferreira | Cybersecurity Portfolio
+# Lucas Ferreira | Cybersecurity Portfolio
 
-### Cybersecurity • SOC • Blue Team • Network Security • Infraestrutura
+**Cybersecurity | SOC | Blue Team | Network Security | IT Infrastructure**
 
-Profissional de Tecnologia da Informação com experiência em suporte técnico, infraestrutura e redes de computadores, direcionando minha carreira para Segurança da Informação e operações de SOC.
+## Sobre
 
-Minha experiência inclui configuração e troubleshooting de redes, TCP/IP, MikroTik, Starlink, switches, VLANs, VPNs, DHCP, roteamento, firewall e CFTV/IP.
+Profissional de Tecnologia da Informação com experiência em suporte técnico, infraestrutura e redes de computadores, atualmente direcionando minha carreira para Segurança da Informação e operações de SOC.
 
-Atualmente, meu foco está no desenvolvimento prático de competências relacionadas a SOC, Blue Team, SIEM, análise de logs, detecção de ameaças e resposta a incidentes.
+Minha experiência inclui suporte e troubleshooting de ambientes de TI, redes TCP/IP, MikroTik, switches, VLANs, VPNs, DHCP, roteamento, firewall, Starlink e CFTV/IP.
 
----
-
-## 🛡️ Áreas de Interesse
-
-- Security Operations Center (SOC)
-- Blue Team
-- SIEM
-- Análise de Logs
-- Incident Response
-- Threat Detection
-- Network Security
-- Endpoint Security
-- Vulnerability Management
+Este repositório reúne projetos, laboratórios e documentação técnica relacionados ao meu desenvolvimento em Cybersecurity, com foco principalmente em SOC, Blue Team, análise de logs, segurança de redes, detecção de ameaças e resposta a incidentes.
 
 ---
 
-## 🔬 Projetos Práticos
+## Projetos
 
-### 🛡️ SOC Lab — Brute Force Detection & Investigation
-Laboratório voltado para monitoramento de eventos, análise de logs, triagem de alertas e investigação de múltiplas falhas de autenticação em ambiente Windows.
+### [SOC Lab - Brute Force Detection & Investigation](SOC-Lab/README.md)
 
-**Tecnologias e conceitos:** `SOC` `SIEM` `Wazuh` `Windows Event Logs` `Incident Response` `MITRE ATT&CK`
+Laboratório direcionado às atividades de um SOC Analyst N1, abordando triagem de alertas, análise de eventos de autenticação do Windows, correlação de eventos e investigação de comportamento compatível com ataques de força bruta.
 
-📁 [Acessar projeto](./SOC-Lab/)
-
-### 🌐 Network Security
-Projeto voltado para segmentação de rede, VLANs, firewall, VPN, roteamento e segurança de infraestrutura.
-
-📁 [Acessar projeto](./Network-Security/)
-
-### 🔍 Log Analysis
-Projeto dedicado à análise de eventos Windows/Linux e identificação de comportamentos suspeitos.
-
-📁 [Acessar projeto](./Log-Analysis/)
-
-### 🐍 Python for Cybersecurity
-Scripts e estudos voltados à automação, análise de logs e tratamento de indicadores.
-
-📁 [Acessar projeto](./Python-Security/)
+**Tópicos:** SOC, SIEM, Wazuh, Windows Event Logs, Incident Response, MITRE ATT&CK.
 
 ---
 
-## 🎓 Cisco Networking Academy / Credly
+### [Windows Security Log Analysis](Log-Analysis/README.md)
 
-- Junior Cybersecurity Analyst Career Path
-- CyberOps Associate
-- Endpoint Security
-- Network Defense
-- Cyber Threat Management
-- Cybersecurity Essentials
-- Networking Devices and Initial Configuration
-- Networking Basics
-- Introduction to Cybersecurity
-- Introduction to IoT
+Análise de eventos de segurança do Windows com foco na identificação e correlação de atividades relevantes para investigações de segurança.
 
----
+Eventos abordados:
 
-## 📚 Formação Complementar — Udemy
+* Event ID 4624 - Successful Logon
+* Event ID 4625 - Failed Logon
+* Event ID 4688 - Process Creation
+* Event ID 4720 - User Account Created
+* Event ID 1102 - Audit Log Cleared
 
-- Curso Completo em Cyber Security (Segurança da Informação)
-- IT Security Specialist
-- Fundamentos de Ethical Hacking: Curso Prático
-- Security+ SY0-601 em Português + Simulados
-- Python 3 do Básico ao Avançado com Projetos Reais
+**Tópicos:** Windows Event Logs, Log Analysis, Event Correlation, Threat Detection.
 
 ---
 
-## 🧰 Tecnologias e Conhecimentos
+### [Network Security](Network-Security/README.md)
 
-`Cybersecurity` `SOC` `Blue Team` `Network Security` `TCP/IP` `MikroTik` `VLAN` `VPN` `Firewall` `Windows` `Linux` `Python` `SIEM`
+Documentação de conceitos e projetos relacionados à segurança de infraestrutura de redes, aproveitando minha experiência prática com administração, conectividade e troubleshooting.
+
+Principais tópicos:
+
+* TCP/IP
+* MikroTik
+* VLAN
+* Firewall
+* VPN
+* DHCP
+* Roteamento
+* Segmentação de redes
+* Controle de acesso
+* Segurança de infraestrutura
 
 ---
 
-## 📌 Objetivo
+### [Python for Cybersecurity](Python-Security/README.md)
 
-Desenvolver e documentar projetos práticos de Segurança da Informação, demonstrando competências aplicáveis a posições de **SOC Analyst N1, Analista de Segurança da Informação Júnior e Cybersecurity Analyst Júnior**.
+Projetos em Python direcionados à automação de tarefas e análise de informações relacionadas à Segurança da Informação.
 
+O objetivo desta área é desenvolver ferramentas simples para atividades como processamento de logs, identificação de padrões, tratamento de indicadores e automação de tarefas repetitivas.
 
 ---
 
-## 📂 Navegação rápida
+## Conhecimentos Técnicos
 
-- [🛡️ SOC Lab — Brute Force Detection & Investigation](SOC-Lab/README.md)
-- [🌐 Network Security](Network-Security/README.md)
-- [🔍 Log Analysis](Log-Analysis/README.md)
-- [🐍 Python for Cybersecurity](Python-Security/README.md)
-- [🎓 Certificações e Capacitações](Certifications/README.md)
+**Security Operations**
 
-> Este portfólio está em evolução contínua. Os laboratórios e projetos são usados para documentar estudos, análises e competências técnicas em Segurança da Informação.
+SOC, Blue Team, SIEM, Log Analysis, Incident Response, Threat Detection, Endpoint Security, Network Defense e MITRE ATT&CK.
+
+**Redes e Infraestrutura**
+
+TCP/IP, MikroTik, VLAN, VPN, DHCP, Routing, Firewall, Wi-Fi, Starlink, switches e CFTV/IP.
+
+**Sistemas e Ferramentas**
+
+Windows, Linux, Wazuh, Python, Git e GitHub.
+
+---
+
+## Certificações e Capacitações
+
+### Cisco Networking Academy
+
+* Junior Cybersecurity Analyst Career Path
+* CyberOps Associate
+* Endpoint Security
+* Network Defense
+* Cyber Threat Management
+* Cybersecurity Essentials
+* Networking Devices and Initial Configuration
+* Networking Basics
+* Introduction to Cybersecurity
+* Introduction to IoT
+
+[Credly - Cisco Networking Academy Badges](https://www.credly.com/users/lucas-ferreira.694cdb1e/badges)
+
+### Formação Complementar
+
+* Curso Completo em Cyber Security (Segurança da Informação)
+* IT Security Specialist
+* Fundamentos de Ethical Hacking
+* Security+ SY0-601 - Curso Preparatório
+* Python 3 do Básico ao Avançado
+
+---
+
+## Objetivo Profissional
+
+Busco oportunidades na área de Segurança da Informação, especialmente em posições relacionadas a **SOC, Blue Team, Cybersecurity e segurança de infraestrutura**.
+
+Meu objetivo é utilizar minha experiência anterior em suporte, infraestrutura e redes como base para atuação em monitoramento de segurança, análise de eventos, identificação de ameaças e resposta a incidentes.
+
+---
+
+## Estrutura do Repositório
+
+```text
+.
+├── SOC-Lab/
+│   └── README.md
+│
+├── Log-Analysis/
+│   └── README.md
+│
+├── Network-Security/
+│   └── README.md
+│
+├── Python-Security/
+│   └── README.md
+│
+├── Certifications/
+│   └── README.md
+│
+└── README.md
+```
+
+Este portfólio será atualizado conforme novos projetos, laboratórios e estudos técnicos forem desenvolvidos.
