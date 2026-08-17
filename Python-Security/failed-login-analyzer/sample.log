@@ -1,0 +1,6 @@
+2026-08-17 14:03:12 FAILED user=administrator src=192.168.10.57
+2026-08-17 14:03:18 FAILED user=administrator src=192.168.10.57
+2026-08-17 14:03:25 FAILED user=administrator src=192.168.10.57
+2026-08-17 14:03:42 FAILED user=administrator src=192.168.10.57
+2026-08-17 14:04:02 FAILED user=finance src=192.168.10.22
+2026-08-17 14:04:30 SUCCESS user=helpdesk src=192.168.10.10
