@@ -53,9 +53,9 @@ O evento foi localizado no Threat Hunting utilizando o filtro:
 
 A captura abaixo apresenta o evento de falha de autenticação identificado no Wazuh Threat Hunting durante a execução do laboratório.
 
-![Evento 4625 identificado no Wazuh](evidência-evento-4625-wazuh.png)
+![Evento 4625 identificado no Wazuh](./evidencia-evento-4625-wazuh.png)
 
-*Evidência 01 — Evento de falha de autenticação (Windows Event ID 4625) coletado e analisado no Wazuh.*
+**Evidência 01 — Evento de falha de autenticação (Windows Event ID 4625) coletado e analisado no Wazuh.**
 
 ## Análise técnica
 
