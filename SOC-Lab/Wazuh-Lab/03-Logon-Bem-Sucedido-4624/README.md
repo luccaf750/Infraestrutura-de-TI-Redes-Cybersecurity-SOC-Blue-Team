@@ -1,102 +1,94 @@
-# Logon Bem-Sucedido — Event ID 4624
+# Investigação de Logon Bem-Sucedido — Event ID 4624
 
 ## Objetivo
-Executar e documentar um cenário controlado de laboratório, identificar os eventos gerados, realizar a triagem no Wazuh e registrar uma análise com foco nas atividades de um Analista SOC L1.
+Analisar autenticações bem-sucedidas do Windows e distinguir atividade normal de um possível uso indevido de credenciais.
 
-## Escopo e ambiente
-- SIEM/XDR: Wazuh
-- Endpoint: Windows
-- Ambiente: laboratório local e controlado
-- Finalidade: treinamento defensivo e construção de portfólio SOC/Blue Team
+## Ambiente
+- Wazuh SIEM/XDR
+- Endpoint Windows monitorado pelo Wazuh Agent
+- Laboratório local, isolado e autorizado
+- Finalidade: treinamento SOC / Blue Team e portfólio técnico
 
 ## Cenário
-Este laboratório simula uma atividade relevante para monitoramento de segurança. A execução deve ocorrer exclusivamente no ambiente de laboratório autorizado.
+Um Event ID 4624 é analisado no Wazuh para identificar conta, contexto de segurança e correlação com outros eventos.
 
-## Procedimento
-1. Confirmar que o Wazuh Manager e o endpoint Windows estão ativos.
-2. Confirmar que o agente Windows está conectado ao Wazuh.
-3. Executar a simulação correspondente ao cenário.
-4. Aguardar a ingestão dos eventos.
-5. Pesquisar os eventos no Wazuh Dashboard.
-6. Examinar usuário, host, origem, horário, processo e demais campos disponíveis.
-7. Correlacionar eventos relacionados.
-8. Classificar a atividade.
-9. Registrar as evidências reais na pasta `evidencias/`.
-
-> **Importante:** não inserir evidências, Rule IDs, IPs, timestamps ou resultados fictícios. Esses dados devem ser coletados durante a execução real.
-
-## Detecção e triagem
-Durante a investigação, responder:
-
-- Qual evento iniciou a investigação?
-- Qual host foi afetado?
-- Qual conta/usuário está envolvido?
-- Qual foi o horário da atividade?
-- Existe endereço IP de origem relevante?
-- Há eventos anteriores ou posteriores relacionados?
-- O comportamento é esperado ou suspeito?
-- Qual a severidade apropriada?
-- O caso deve ser encerrado, monitorado ou escalado?
+## Eventos e telemetria
+**4624 — An account was successfully logged on.**
 
 ## MITRE ATT&CK
-**Mapeamento principal:** T1078 — Valid Accounts
+**T1078 — Valid Accounts**
 
-O mapeamento deve ser validado após observar a atividade real e os eventos coletados.
+> O mapeamento ATT&CK deve permanecer associado ao comportamento realmente observado. A presença de uma técnica não significa, por si só, comprometimento.
 
-## Evidências necessárias
-Salvar em `evidencias/`, quando aplicável:
+## Execução / procedimento
+O cenário já foi analisado no laboratório por meio dos eventos coletados do endpoint Windows.
 
-1. Execução da simulação.
-2. Evento/alerta no Wazuh.
-3. Campos relevantes do evento.
-4. Eventos correlacionados.
-5. Resultado final da investigação.
+## Resultado esperado
+O Wazuh apresenta o Event ID 4624 e os campos de autenticação disponíveis no evento.
 
-Sugestão de nomes:
-- `01-execucao.png`
-- `02-alerta-wazuh.png`
-- `03-detalhes-evento.png`
-- `04-correlacao.png`
-- `05-conclusao.png`
+## Roteiro de investigação
+1. Confirmar o endpoint e a janela temporal.
+2. Identificar o evento/alerta que iniciou a análise.
+3. Examinar usuário, host, origem, processo/comando e demais campos disponíveis.
+4. Buscar eventos imediatamente anteriores e posteriores.
+5. Validar se existe relação entre os eventos.
+6. Comparar a atividade com o cenário autorizado do laboratório.
+7. Registrar fatos separadamente de hipóteses.
+8. Definir severidade e classificação com base no contexto.
+9. Salvar evidências reais.
+10. Documentar a conclusão.
 
-## Registro da investigação
+## Análise SOC
+Na investigação realizada foi observado o contexto `SYSTEM`, SID `S-1-5-18`, Logon ID `0x3E7` e Wazuh Rule ID **60106**. O simples Event ID 4624 não caracteriza incidente; horário, tipo de logon, origem, conta e eventos adjacentes determinam a relevância.
+
+## Registro técnico
 
 | Campo | Resultado |
 |---|---|
-| Data/hora | PREENCHER APÓS EXECUÇÃO |
-| Host | PREENCHER APÓS EXECUÇÃO |
-| Usuário | PREENCHER APÓS EXECUÇÃO |
-| IP de origem | PREENCHER APÓS EXECUÇÃO |
-| Event ID | PREENCHER APÓS EXECUÇÃO |
-| Wazuh Rule ID | PREENCHER APÓS EXECUÇÃO |
-| Nível do alerta | PREENCHER APÓS EXECUÇÃO |
-| MITRE ATT&CK | T1078 — Valid Accounts |
-| Classificação | PREENCHER APÓS INVESTIGAÇÃO |
+| Event ID | 4624 |
+| Conta/contexto | SYSTEM |
+| SID | S-1-5-18 |
+| Logon ID | 0x3E7 |
+| Wazuh Rule ID | 60106 |
+| Classificação | Atividade observada e analisada no laboratório |
 
-## Análise SOC
-**Contexto:** PREENCHER APÓS EXECUÇÃO.
-
-**Evidências observadas:** PREENCHER APÓS EXECUÇÃO.
-
-**Correlação:** PREENCHER APÓS EXECUÇÃO.
-
-**Classificação:** PREENCHER APÓS EXECUÇÃO.
+## Critérios de escalonamento
+Em ambiente corporativo, considerar escalonamento quando houver, conforme o cenário:
+- atividade sem mudança/ticket autorizado;
+- conta privilegiada ou ativo crítico;
+- origem inesperada;
+- execução ou persistência sem justificativa;
+- múltiplos eventos correlacionados aumentando a confiança;
+- evidência de impacto, propagação ou comprometimento;
+- necessidade de contenção além da atribuição do SOC L1.
 
 ## Contenção e remediação
-Após a investigação, registrar quais ações seriam apropriadas em um ambiente corporativo, considerando preservação de evidências, impacto operacional e procedimentos de resposta a incidentes.
+A resposta deve ser proporcional ao caso e seguir procedimentos organizacionais. Possíveis ações incluem validar a mudança com o proprietário do ativo, preservar evidências, desabilitar/restringir contas quando autorizado, remover mecanismos não autorizados, isolar endpoint quando necessário e escalar para resposta a incidentes. **Não executar contenção destrutiva no laboratório apenas para produzir evidência.**
+
+## Evidências para o GitHub
+Adicionar somente evidências reais e sanitizadas à pasta `evidencias/`.
+
+Sugestão:
+- `01-execucao.png`
+- `02-alerta-wazuh.png`
+- `03-campos-relevantes.png`
+- `04-correlacao.png`
+- `05-resultado-final.png`
+
+Não publicar senhas, tokens, dados pessoais, IP público sensível ou informação confidencial.
 
 ## Conclusão
-PREENCHER APÓS A EXECUÇÃO REAL DO LABORATÓRIO.
+O laboratório demonstrou que um logon bem-sucedido deve ser interpretado em contexto. A correlação com falhas anteriores, origem incomum ou conta privilegiada pode transformar um evento rotineiro em indicador relevante.
 
 ## Competências demonstradas
-- Monitoramento de eventos de segurança
 - Wazuh SIEM
 - Windows Event Logs
 - Triagem de alertas
-- Correlação de eventos
+- Correlação e construção de contexto
 - MITRE ATT&CK
-- Análise e documentação de incidentes
-- Fundamentos de SOC / Blue Team
+- Documentação de investigação
+- Fundamentos de resposta a incidentes
+- SOC / Blue Team
 
 ---
-**Status:** Planejado — aguardando execução e evidências reais.
+**Observação de integridade:** campos marcados como `[COLETAR]`, `[VALIDAR]` ou equivalentes dependem da execução real e não devem ser substituídos por dados presumidos.

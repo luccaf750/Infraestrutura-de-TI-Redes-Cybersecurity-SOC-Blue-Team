@@ -1,102 +1,96 @@
-# Correlação de Múltiplos Eventos
+# Correlação de Eventos e Construção de Timeline
 
 ## Objetivo
-Executar e documentar um cenário controlado de laboratório, identificar os eventos gerados, realizar a triagem no Wazuh e registrar uma análise com foco nas atividades de um Analista SOC L1.
+Correlacionar múltiplos eventos para transformar alertas isolados em uma narrativa investigativa.
 
-## Escopo e ambiente
-- SIEM/XDR: Wazuh
-- Endpoint: Windows
-- Ambiente: laboratório local e controlado
-- Finalidade: treinamento defensivo e construção de portfólio SOC/Blue Team
+## Ambiente
+- Wazuh SIEM/XDR
+- Endpoint Windows monitorado pelo Wazuh Agent
+- Laboratório local, isolado e autorizado
+- Finalidade: treinamento SOC / Blue Team e portfólio técnico
 
 ## Cenário
-Este laboratório simula uma atividade relevante para monitoramento de segurança. A execução deve ocorrer exclusivamente no ambiente de laboratório autorizado.
+São usados eventos já coletados — criação de conta, mudança de privilégio, autenticação e demais labs — para construir uma timeline.
 
-## Procedimento
-1. Confirmar que o Wazuh Manager e o endpoint Windows estão ativos.
-2. Confirmar que o agente Windows está conectado ao Wazuh.
-3. Executar a simulação correspondente ao cenário.
-4. Aguardar a ingestão dos eventos.
-5. Pesquisar os eventos no Wazuh Dashboard.
-6. Examinar usuário, host, origem, horário, processo e demais campos disponíveis.
-7. Correlacionar eventos relacionados.
-8. Classificar a atividade.
-9. Registrar as evidências reais na pasta `evidencias/`.
-
-> **Importante:** não inserir evidências, Rule IDs, IPs, timestamps ou resultados fictícios. Esses dados devem ser coletados durante a execução real.
-
-## Detecção e triagem
-Durante a investigação, responder:
-
-- Qual evento iniciou a investigação?
-- Qual host foi afetado?
-- Qual conta/usuário está envolvido?
-- Qual foi o horário da atividade?
-- Existe endereço IP de origem relevante?
-- Há eventos anteriores ou posteriores relacionados?
-- O comportamento é esperado ou suspeito?
-- Qual a severidade apropriada?
-- O caso deve ser encerrado, monitorado ou escalado?
+## Eventos e telemetria
+Exemplos disponíveis no portfólio incluem 4720, 4732, 4624 e 4625, além dos eventos validados nos Labs 06–09.
 
 ## MITRE ATT&CK
-**Mapeamento principal:** Event Correlation
+**Múltiplas técnicas — conforme os eventos correlacionados.**
 
-O mapeamento deve ser validado após observar a atividade real e os eventos coletados.
+> O mapeamento ATT&CK deve permanecer associado ao comportamento realmente observado. A presença de uma técnica não significa, por si só, comprometimento.
 
-## Evidências necessárias
-Salvar em `evidencias/`, quando aplicável:
+## Execução / procedimento
+1. Defina uma janela temporal.
+2. Ordene os eventos por timestamp.
+3. Registre host, usuário, origem, Event ID e ação.
+4. Identifique relações de causa/efeito.
+5. Separe coincidência temporal de correlação sustentada por evidência.
+6. Produza uma timeline final.
 
-1. Execução da simulação.
-2. Evento/alerta no Wazuh.
-3. Campos relevantes do evento.
-4. Eventos correlacionados.
-5. Resultado final da investigação.
+## Resultado esperado
+Timeline que mostre como diferentes fontes/eventos mudam a interpretação do alerta.
 
-Sugestão de nomes:
-- `01-execucao.png`
-- `02-alerta-wazuh.png`
-- `03-detalhes-evento.png`
-- `04-correlacao.png`
-- `05-conclusao.png`
+## Roteiro de investigação
+1. Confirmar o endpoint e a janela temporal.
+2. Identificar o evento/alerta que iniciou a análise.
+3. Examinar usuário, host, origem, processo/comando e demais campos disponíveis.
+4. Buscar eventos imediatamente anteriores e posteriores.
+5. Validar se existe relação entre os eventos.
+6. Comparar a atividade com o cenário autorizado do laboratório.
+7. Registrar fatos separadamente de hipóteses.
+8. Definir severidade e classificação com base no contexto.
+9. Salvar evidências reais.
+10. Documentar a conclusão.
 
-## Registro da investigação
+## Análise SOC
+Correlação reduz o risco de analisar um Event ID fora de contexto. Falhas de autenticação seguidas por sucesso, criação de conta seguida de privilégio e execução subsequente podem aumentar a prioridade — mas apenas quando os campos sustentam a relação.
+
+## Registro técnico
 
 | Campo | Resultado |
 |---|---|
-| Data/hora | PREENCHER APÓS EXECUÇÃO |
-| Host | PREENCHER APÓS EXECUÇÃO |
-| Usuário | PREENCHER APÓS EXECUÇÃO |
-| IP de origem | PREENCHER APÓS EXECUÇÃO |
-| Event ID | PREENCHER APÓS EXECUÇÃO |
-| Wazuh Rule ID | PREENCHER APÓS EXECUÇÃO |
-| Nível do alerta | PREENCHER APÓS EXECUÇÃO |
-| MITRE ATT&CK | Event Correlation |
-| Classificação | PREENCHER APÓS INVESTIGAÇÃO |
+| Fontes | Eventos reais dos laboratórios |
+| Produto final | Timeline investigativa |
+| Classificação | [APÓS CORRELAÇÃO] |
 
-## Análise SOC
-**Contexto:** PREENCHER APÓS EXECUÇÃO.
-
-**Evidências observadas:** PREENCHER APÓS EXECUÇÃO.
-
-**Correlação:** PREENCHER APÓS EXECUÇÃO.
-
-**Classificação:** PREENCHER APÓS EXECUÇÃO.
+## Critérios de escalonamento
+Em ambiente corporativo, considerar escalonamento quando houver, conforme o cenário:
+- atividade sem mudança/ticket autorizado;
+- conta privilegiada ou ativo crítico;
+- origem inesperada;
+- execução ou persistência sem justificativa;
+- múltiplos eventos correlacionados aumentando a confiança;
+- evidência de impacto, propagação ou comprometimento;
+- necessidade de contenção além da atribuição do SOC L1.
 
 ## Contenção e remediação
-Após a investigação, registrar quais ações seriam apropriadas em um ambiente corporativo, considerando preservação de evidências, impacto operacional e procedimentos de resposta a incidentes.
+A resposta deve ser proporcional ao caso e seguir procedimentos organizacionais. Possíveis ações incluem validar a mudança com o proprietário do ativo, preservar evidências, desabilitar/restringir contas quando autorizado, remover mecanismos não autorizados, isolar endpoint quando necessário e escalar para resposta a incidentes. **Não executar contenção destrutiva no laboratório apenas para produzir evidência.**
+
+## Evidências para o GitHub
+Adicionar somente evidências reais e sanitizadas à pasta `evidencias/`.
+
+Sugestão:
+- `01-execucao.png`
+- `02-alerta-wazuh.png`
+- `03-campos-relevantes.png`
+- `04-correlacao.png`
+- `05-resultado-final.png`
+
+Não publicar senhas, tokens, dados pessoais, IP público sensível ou informação confidencial.
 
 ## Conclusão
-PREENCHER APÓS A EXECUÇÃO REAL DO LABORATÓRIO.
+O laboratório deve demonstrar raciocínio temporal e capacidade de justificar por que eventos pertencem — ou não — ao mesmo caso.
 
 ## Competências demonstradas
-- Monitoramento de eventos de segurança
 - Wazuh SIEM
 - Windows Event Logs
 - Triagem de alertas
-- Correlação de eventos
+- Correlação e construção de contexto
 - MITRE ATT&CK
-- Análise e documentação de incidentes
-- Fundamentos de SOC / Blue Team
+- Documentação de investigação
+- Fundamentos de resposta a incidentes
+- SOC / Blue Team
 
 ---
-**Status:** Planejado — aguardando execução e evidências reais.
+**Observação de integridade:** campos marcados como `[COLETAR]`, `[VALIDAR]` ou equivalentes dependem da execução real e não devem ser substituídos por dados presumidos.
